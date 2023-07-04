@@ -1,0 +1,197 @@
+.keys .key-alt::before {
+ padding-right:.4em;
+ content:"⎇"
+}
+.keys .key-left-alt::before {
+ padding-right:.4em;
+ content:"⎇"
+}
+.keys .key-right-alt::before {
+ padding-right:.4em;
+ content:"⎇"
+}
+.keys .key-command::before {
+ padding-right:.4em;
+ content:"⌘"
+}
+.keys .key-left-command::before {
+ padding-right:.4em;
+ content:"⌘"
+}
+.keys .key-right-command::before {
+ padding-right:.4em;
+ content:"⌘"
+}
+.keys .key-control::before {
+ padding-right:.4em;
+ content:"⌃"
+}
+.keys .key-left-control::before {
+ padding-right:.4em;
+ content:"⌃"
+}
+.keys .key-right-control::before {
+ padding-right:.4em;
+ content:"⌃"
+}
+.keys .key-meta::before {
+ padding-right:.4em;
+ content:"◆"
+}
+.keys .key-left-meta::before {
+ padding-right:.4em;
+ content:"◆"
+}
+.keys .key-right-meta::before {
+ padding-right:.4em;
+ content:"◆"
+}
+.keys .key-option::before {
+ padding-right:.4em;
+ content:"⌥"
+}
+.keys .key-left-option::before {
+ padding-right:.4em;
+ content:"⌥"
+}
+.keys .key-right-option::before {
+ padding-right:.4em;
+ content:"⌥"
+}
+.keys .key-shift::before {
+ padding-right:.4em;
+ content:"⇧"
+}
+.keys .key-left-shift::before {
+ padding-right:.4em;
+ content:"⇧"
+}
+.keys .key-right-shift::before {
+ padding-right:.4em;
+ content:"⇧"
+}
+.keys .key-super::before {
+ padding-right:.4em;
+ content:"❖"
+}
+.keys .key-left-super::before {
+ padding-right:.4em;
+ content:"❖"
+}
+.keys .key-right-super::before {
+ padding-right:.4em;
+ content:"❖"
+}
+.keys .key-left-windows::before {
+ padding-right:.4em;
+ content:"⊞"
+}
+.keys .key-right-windows::before {
+ padding-right:.4em;
+ content:"⊞"
+}
+.keys .key-arrow-down::before {
+ padding-right:.4em;
+ content:"▽"
+}
+.keys .key-arrow-left::before {
+ padding-right:.4em;
+ content:"◁"
+}
+.keys .key-arrow-right::before {
+ padding-right:.4em;
+ content:"▷"
+}
+.keys .key-arrow-up::before {
+ padding-right:.4em;
+ content:"△"
+}
+.keys .key-backspace::before {
+ padding-right:.4em;
+ content:"⌫"
+}
+.keys .key-backtab::before {
+ padding-right:.4em;
+ content:"⇤"
+}
+.keys .key-caps-lock::before {
+ padding-right:.4em;
+ content:"⇪"
+}
+.keys .key-clear::before {
+ padding-right:.4em;
+ content:"⌧"
+}
+.keys .key-context-menu::before {
+ padding-right:.4em;
+ content:"☰"
+}
+.keys .key-delete::before {
+ padding-right:.4em;
+ content:"⌦"
+}
+.keys .key-eject::before {
+ padding-right:.4em;
+ content:"⏏"
+}
+.keys .key-end::before {
+ padding-right:.4em;
+ content:"⤓"
+}
+.keys .key-escape::before {
+ padding-right:.4em;
+ content:"⎋"
+}
+.keys .key-home::before {
+ padding-right:.4em;
+ content:"⤒"
+}
+.keys .key-insert::before {
+ padding-right:.4em;
+ content:"⎀"
+}
+.keys .key-page-down::before {
+ padding-right:.4em;
+ content:"⇟"
+}
+.keys .key-page-up::before {
+ padding-right:.4em;
+ content:"⇞"
+}
+.keys .key-print-screen::before {
+ padding-right:.4em;
+ content:"⎙"
+}
+.keys .key-tab::after {
+ padding-left:.4em;
+ content:"↹"
+}
+.keys .key-num-enter::after {
+ padding-left:.4em;
+ content:"⌤"
+}
+.keys .key-enter::after {
+ padding-left:.4em;
+ content:"⏎"
+}
+
+.keys .key-windows::after {
+ padding-left:.4em;
+ content:"⊞"
+}
+
+kbd {
+    /*border: 1px solid #ebe6e6;
+    color: #9c5252;*/
+    display: inline-block;
+    padding: 0 .6666666667em;
+    line-height: 1.5;
+    vertical-align: text-top;
+    word-break: break-word;
+    border-radius: .1rem;
+    /*background-color: rgb(255, 255, 255);*/
+/*box-shadow: 0 .1rem 0 .05rem #eec6c6,0 .1rem 0 #fbc7d0,inset 0 -0.1rem .2rem #f7eaec;*/
+}
+.keys span {
+    padding: 0 .2em;
+}

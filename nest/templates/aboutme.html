@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ super() }}{% endblock title %}
+{% block description %}{% if page.has_summary %}{{ page.summary|striptags|escape }}{% else %}{{ page.content|striptags|truncate(200)|escape }}{% endif %}{% endblock description %}
+
+{% if page.keywords %}
+{% block keywords %}{{ page.keywords }}{% endblock keywords %}
+{% endif %}
+
+{% block head %}{{ super() }}<meta name="robots" content="index">{% endblock head %}
+{% block canonical_rel %}
+<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">
+{% endblock %}
+
+      {% block content %}
+      <div class="aboutme-main-wrapper">
+      <div class="aboutme-container">
+      <div class="row">
+<!-- <div ><img class=profile alt="profile" src="/images/pp-full.png"></div>
+ -->
+
+        <div class="containermain" itemscope itemtype="http://schema.org/Article" itemprop="articleBody">
+<!-- <div ><img class=profile alt="profile" src="/images/pp-full.png"></div>
+ -->        <div class="aboutmecontent">
+          {{ page.content }}
+        </div>
+</div>
+        <div class="containerright">
+<div ><img class=profile alt="profile" src="{{ SITEURL }}/images/pp-full.jpg" style="max-width:225px;"></div>
+
+        <aside class="aboutmecontent" style="text-align:center;">
+          <h1><span itemprop="name">#whoami</span></h1>
+<hr />
+<ul>
+<li><strong>Stevie Poppe</strong></li>
+<li>PhD student @ KU Leuven</li>
+<li>MEXT Research student @ Chuo University</li>
+<li>MA Japanese Studies @ KULeuven</li>
+<li>BA Applied Informatics @ AP University College</li>
+</ul>
+<hr />
+<h2>@Chuo University(<span lang="ja">の生活</span>)</h2>
+<ul>
+<li>Graduate Teaching Assistant GSP<sup><a id="fnref-2" class="footnote-ref" href="#fn-2" rel="footnote">2</a></sup></li>
+<li>Circle Activities<sup><a id="fnref-3" class="footnote-ref" href="#fn-3" rel="footnote">3</a></sup></li>
+</ul>
+<h2>@KU Leuven(<span lang="ja">の生活</span>)</h2>
+<ul>
+<li>PAL-Coach<sup><a id="fnref-4" class="footnote-ref" href="#fn-4" rel="footnote">4</a></sup></li>
+<li>CC Member<sup><a id="fnref-5" class="footnote-ref" href="#fn-5" rel="footnote">5</a></sup></li>
+<li>Buddy Program member<sup><a id="fnref-6" class="footnote-ref" href="#fn-6" rel="footnote">6</a></sup></li>
+<li>Co-organizer of the Japanese Reading Club<sup><a id="fnref-7" class="footnote-ref" href="#fn-7" rel="footnote">7</a></sup></li>
+</ul>
+<h2>@AP University College(<span lang="ja">の生活</span>)</h2>
+<ul>
+<li>Participated in short-term <strong>foreign exchange projects</strong> @ Portugal, Belgium and Luxembourg</li>
+<li>Received 'Best Programmer' award at the 2014 graduation ceremony</li>
+<li>Cultivated an attitude of <strong>curiosity</strong> and <strong>adaptiveness</strong></li>
+</ul>
+<h2>@Personal(<span lang="ja">の生活</span>)</h2>
+<ul>
+<li><strong>Music</strong>: piano, band activities (keyboard), composing</li>
+<li><strong>Others</strong>: avid reader and film-enthusiast</li>
+<li><strong>Technical</strong>: hobbyist web-designer</li>
+</ul>
+        </aside>
+          </div>
+
+
+
+
+        </div>
+                      <article class="footnotescontent">
+<aside class="footnote">
+  <hr />
+<ol>
+<li id="fn-1">
+<p><em>Onoreto</em> is the transliteration of <span lang="ja">己と</span>, stylized as <span lang="ja">己ト</span>. In the context of this blog as personal portfolio, <span lang="ja">己</span> (<em>onore</em>) is a humble, rather old-fashioned way to refer to oneself, and <span lang="ja">己と</span> also serves as an <a href="http://kobun.weblio.jp/content/%E5%B7%B1%E3%81%A8">archaic Japanese expression</a> signifying a spontaneous, natural action, similar to <span lang="ja">みずから</span> <em>mizukara</em> or <span lang="ja">おのずから</span> <em>onozukara</em>.&nbsp;<a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn-2">
+<p>For one academic year, I have assisted Dr. Prof. Nomiya Daishiro as teaching assistant in his Global Sociology Program, a course designed to teach undergraduate students the necessary skills to tackle academic research in the English language. This is done through both extensively handling academic literature on global issues in the field of Sociology (both in English and Japanese), as well as learn methodology through group projects. The students' intensive work lead to several presentations at an international conference held in Tokyo, March, 2019. &nbsp;<a class="footnote-backref" href="#fnref-2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn-3">
+<p>I used my period as student at Chuo University to not just further my academic ambitions, but to develop a local friend circle based on my personal hobbies. By joining a music circles, I fulfilled a personal dream of performing live music in Japan, including at Chuo University's school festival. finally, I was a member of the piano circle, and often spent time at one of the movie-circles to extend my knowledge of Japanese cinema.&nbsp;<a class="footnote-backref" href="#fnref-3" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn-4">
+<p><em>‘Peer Assisted Learning’</em>. PAL coaches at Leuven University, usually second and third grade upper-class students, regularly assist first grade students on topics ranging from efficient studying, preparing for certain classes, networking or feeling at home. I took on the role of PAL coach in my second and third year.&nbsp;<a class="footnote-backref" href="#fnref-4" title="Jump back to footnote 4s in the text">↩</a></p>
+</li>
+<li id="fn-5">
+<p>The Japan Studies CC (<a href="http://japanologie.arts.kuleuven.be/nl/organisatie-en-bestuur">Curriculum Commission</a>) monitors and assesses the quality of the academic program and consists of both faculty members and students representing their respective years. Topics include matters as programming, form and evaluation of courses amongst others. I served as CC member from my first to my third at Leuven University.&nbsp;<a class="footnote-backref" href="#fnref-5" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn-6">
+<p>KU Leuven's <a href="http://www.kuleuven.be/english/studentservices/orientationdays/buddy">buddy program</a> is meant to ease the integration of new international students or researchers by connecting them to locals. These local 'buddies' help with things like finding one's way around town, adapting to one's new lifestyle, expending one's network, etc.&nbsp;<a class="footnote-backref" href="#fnref-6" title="Jump back to footnote 6 in the text">↩</a></p>
+</li>
+<li id="fn-7">
+<p>We follow the principle of <a href="https://en.wikipedia.org/wiki/Guided_reading">Guided Reading</a>: weekly reading sessions as a group of about six students accompanied by a teacher serving as our mentor. In our second year, we finished our first book: <em>The Girl Who Leapt Through Time</em> (<span lang="ja">時をかける少女</span>) over the course of one semester.&nbsp;<a class="footnote-backref" href="#fnref-7" title="Jump back to footnote 7 in the text">↩</a></p>
+</li>
+</ol>
+<hr/>
+</aside>
+        </article>
+        </div>
+      </div>
+
+      {% endblock %}

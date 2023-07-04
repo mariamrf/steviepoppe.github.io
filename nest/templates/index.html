@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ NEST_INDEX_HEAD_TITLE }} | {{ super() }}{% endblock title %}
+{% block description %}{{ INDEX_DESCRIPTION }}{% endblock description %}
+{% block canonical_rel %}<link rel="canonical" href="{{ SITEURL }}">{% endblock %}
+{% block keywords %}{{ INDEX_KEYWORDS }}{% endblock keywords %}
+{% block head %}{{ super() }}<meta name="robots" content="index">{% endblock head %}
+
+
+{% block content %}
+<div class="home-articles">
+<div class="archive-container container">
+  <div class="row home-articles-title">
+  <h1>Recent Posts</h1>
+</div>
+  <div class="row">
+  {% for article in articles_page.object_list %}
+  <div class="col-xs-12 col-lg-6">
+  <div class="container content padding-40 index-content-container home-article-container">
+    {% if article.image %}
+    <div class="container header-wrapper banner" style="background: linear-gradient(rgba(6, 6, 6, 0.70), rgba(0, 0, 0, 0.70)), url('{{ SITEURL }}/images/{{ article.image }}'); background-position: center;">
+    {% else %}
+    <div class="container header-wrapper nobanner">
+    {% endif %}
+            <div class="header-content center">
+
+    {% if article.image %}
+    <h1 class="post-title">
+    {% else %}
+    <h1 class="post-title" style="color: #124877 !important; ">
+    {% endif %}
+              {% if article.pin %}<i class="icon-pushpin"></i> <a href="/{{ article.url }}" title="{{ article.title|striptags }}">[Featured] - {{ article.title }}</a>{% else %}<a href="/{{ article.url }}" title="{{ article.title|striptags }}">{{ article.title }}</a>{% endif %}</h1>
+              <div class="banner-index-content"><span class="datetitle">{{article.locale_date|title}}</span>
+
+                {% if not article.image %}
+                <hr>
+                {% endif %}
+              </div>
+        </div>
+      </div>
+
+      <div class="post-content">
+        <p style="display: table;">
+          {% if article.has_summary %} 
+          {{ article.summary|striptags|truncate(SUMMARY_MAX_LENGTH_HOME) }} 
+          {% else %} 
+          {{ article.content|striptags|truncate(SUMMARY_MAX_LENGTH_HOME) }}
+          {% endif %}
+          <a href="{{ SITEURL }}/{{ article.url }}" style="float: right;"> Continue →</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+    {% endfor %}
+    <div class="home-articles-title"><h3><a href="{{ SITEURL }}/blog/">>> See all posts</a></h3></div>
+  </div>
+</div>
+{% endblock content %}

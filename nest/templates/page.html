@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ page.title }} | {{ super() }}
+{% endblock title %}
+{% block description %}{% if page.has_summary %}{{ page.summary|striptags|escape }}{% else %}{{ page.content|striptags|truncate(200)|escape }}{% endif %}{% endblock description %}
+
+{% if page.keywords %}
+{% block keywords %}{{ page.keywords }}{% endblock keywords %}
+{% endif %}
+
+{% block canonical_rel %}
+<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">
+{% endblock %}
+{% block head %}{{ super() }}<meta name="robots" content="index">{% endblock head %}
+{% block content %}
+    <div class="container content page container-main">
+    <h1 class="nocount" style="text-align:center;">{{ page.title }}</h1>
+            {% if page.toc %}
+
+            <nav class="toc-container">
+              <input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none">
+            <p class="toc_title">Table of Contents<span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></p>
+            {{ page.toc }}
+            </nav>
+        {% endif %}
+        <div class="side-content">
+        {{ page.content }}
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}{{ NEST_CATEGORY_HEAD_TITLE }} {{ category|capitalize }} | {{ super() }}{% endblock title %}
+{% block description %}{{ NEST_CATEGORY_HEAD_DESCRIPTION }}{{ category|capitalize }}{% endblock description %}
+{% block head %}{{ super() }}<meta name="robots" content="noindex">{% endblock head %}
+
+{% block content %}
+
+<div class="archive-container">
+
+    <div class="archive-container">
+            <h1 style="text-align:center; margin: 0px; font-size:3em;">{{ category | capitalize }}</h1>
+    </div>
+
+  {% for article in articles %}
+
+  <div class="container content padding-40 index-content-container">
+    {% if article.image %}
+    <div class="container header-wrapper banner" style="background: linear-gradient(rgba(6, 6, 6, 0.61), rgba(0, 0, 0, 0.46)), url('{{ SITEURL }}/images/{{ article.image }}'); background-position: center; background-size: cover;">
+        {% else %}
+        <div class="container header-wrapper nobanner">
+          {% endif %}
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="header-content center">
+                <h1 class="post-title">{% if article.pin %}<i class="icon-pushpin"></i>{% endif %}
+                  <a href="/{{ article.url }}" title="{{ article.title|striptags }}">{{ article.title }}</a>
+                </h1>
+                <div class="banner-index-content"><span class="datetitle">{{article.locale_date}}</span>
+                  {% if article.tags and article.tags[0]|trim|count > 0 %}
+
+                  <ul>
+                    <span class="tagtitle"><a href="{{ SITEURL }}/blog/tags/">Tags <i class="icon-tags"></i></a></span>
+                    {% for tag in article.tags|sort %}
+                    <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+
+                  {% if not article.image %}
+                  <hr>
+                  {% endif %}
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-content">
+          <p style="display: table;">
+            {% if article.has_summary %} 
+            {{ article.summary|striptags|truncate(SUMMARY_MAX_LENGTH) }} 
+            {% else %} 
+            {{ article.content|striptags|truncate(SUMMARY_MAX_LENGTH) }}
+            {% endif %}
+            <a href="{{ SITEURL }}/{{ article.url }}" style="float: right;"> Continue →</a>
+          </p>
+        </div>
+
+      </div>
+      {% endfor %}
+    {% include 'pagination.html' %}
+    </div>
+
+{% endblock content %}

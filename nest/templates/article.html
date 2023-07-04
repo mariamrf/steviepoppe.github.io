@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title|striptags }} | {{ super() }}{% endblock title %}
+{% block description %}{% if article.has_summary %}{{ article.summary|striptags|escape }}{% else %}{{ article.content|striptags|truncate(200)|escape }}{% endif %}{% endblock description %}
+{% block keywords %}{% if article.keywords %}{{ article.keywords }}{% else %}
+{% for tag in article.tags|sort %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor %}
+{% endif %}{% endblock keywords %}
+
+{% block lang %}
+{% if article.language %}{{ article.language }}{% else %}{{ super() }}{% endif %}
+{% endblock %}
+{% block head %}{{ super() }}<meta name="robots" content="index">{% endblock head %}
+
+{% block canonical_rel %}
+<link rel="canonical" href="{{ SITEURL }}/{{ article.url }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container content padding-40 articleshadow" itemscope itemtype="http://schema.org/Article">
+    {% if article.image %}
+    <div class="container header-wrapper banner">
+        <div class="row" style="background: linear-gradient(rgba(6, 6, 6, 0.60), rgba(0, 0, 0, 0.60)), url('{{ SITEURL }}/images/{{ article.image }}'); background-position: center; background-size: cover;">
+    {% elif NEST_HEADER_IMAGES %}
+    <div class="container header-wrapper banner">
+        <div class="row" style="background: linear-gradient(rgba(6, 6, 6, 0.60), rgba(0, 0, 0, 0.60)), url('{{ SITEURL }}/images/{{ NEST_HEADER_IMAGES }}'); background-position: center; background-size: cover;">
+    {% else %}
+    <div class="container header-wrapper nobanner">
+        <div class="row">
+        <hr/>
+    {% endif %}
+              <div class="col-lg-12">
+                  <div class="header-content center">
+                      <h1 class="header-title nocount"><span itemprop="name">{{article.title}}</span>{% if article.image %}<sup id="fnref-footnote"><a class="footnote-ref imagesource" href="#fn-footnote" rel="footnote">1</a></sup>{% endif %}</h1>
+                      <p class="header-date"><span itemprop="datePublished" content="2016-09-07">{{ article.locale_date|title }}</span>{% if article.modified %}, {{ NEST_ARTICLE_HEADER_MODIFIED }} {{ article.locale_modified }}{% endif %}, {{ NEST_ARTICLE_HEADER_IN }} <a href="{{ SITEURL }}/{{ category.url }}"><span itemprop="articleSection">{{ article.category|capitalize }}</span></a></p>
+                      <div class="header-underline"></div>
+                      <div class="clearfix"></div>
+                      <p class="pull-right header-tags">
+                          <span class="icon-tags" aria-hidden="true"></span>
+                          {% for tag in article.tags|sort %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+                      </p>
+                  </div>
+              </div>
+        </div>
+    </div>
+    <div class="container-main" itemprop="articleBody">
+<!--         {% if article.image %}
+<h1 style="text-align: center;" class="nocount">{{ article.title }}</h1>
+    {% endif %} -->
+        {% if article.toc %}
+            <nav class="toc-container">
+              <input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none">
+            <p class="toc_title">Table of Contents<span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></p>
+            {{ article.toc }}
+            </nav>
+        {% endif %}
+        {{ article.content }}
+    <hr/>
+        </div>
+
+        {% include "disqus_script.html" %}
+                {% if article.related_posts %}
+                <hr />
+        <div class="category">
+            <h2>Related posts</h2>
+            <dl class="dl-horizontal">
+            {% for related_post in article.related_posts %}
+                <dt>{{ related_post.locale_date}}</dt>
+                <dd><a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a></dd>
+            {% endfor %}
+            </dl>
+            </div>
+        {% endif %}
+        <hr />
+    </div>
+
+      <nav class="pagination">
+
+    {% if article.prev_article %}
+    <span id="older-nav">
+      <a href="{{ SITEURL }}/{{ article.prev_article.url}}">Older Posts
+      <!--?xml version="1.0" encoding="utf-8"?-->
+      <svg version="1.1" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1024 948" enable-background="new 0 0 1024 948" xml:space="preserve"> <polygon points="139,512 1024,512 1024,436 139,436 528,47 465,0 0,483 465,948 528,901 "></polygon></svg></a>
+    </span>
+    {% endif %}
+
+    {% if article.next_article %}
+    <span id="newer-nav">
+      <a href="{{ SITEURL }}/{{ article.next_article.url}}">
+      <!--?xml version="1.0" encoding="utf-8"?-->
+      <svg version="1.1" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1024 948" enable-background="new 0 0 1024 948" xml:space="preserve"> <polygon points="885,512 0,512 0,436 885,436 496,47 559,0 1024,483 559,948 496,901 "></polygon></svg> Newer Posts</a>
+    </span>
+  </nav>
+    {% endif %}
+
+    <script src="{{ SITEURL }}/theme/js/youarehere.min.js"></script>
+    <!-- You can also customize the bar a bit -->
+{% endblock %}

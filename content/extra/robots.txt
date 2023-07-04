@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /drafts/
+Disallow: /drafts/*
+Disallow: /blog/category/
+Disallow: /blog/category/*
+Disallow: /blog/tags/
+Disallow: /blog/tags/*
+Disallow: /search.html
+Sitemap: https://steviepoppe.net/sitemap.xml

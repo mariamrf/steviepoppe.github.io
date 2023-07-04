@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ NEST_PERIOD_ARCHIVES_HEAD_TITLE }} {{ period | reverse | join(' ') }} | {{ super() }}{% endblock title %}
+{% block description %}{{ NEST_PERIOD_ARCHIVES_HEAD_DESCRIPTION }} {{ period | reverse | join(' ') }}{% endblock description %}
+
+{% block content %}
+    <div class="archive-container">
+        <div class="container content archive category">
+            <h2>{{ NEST_PERIOD_ARCHIVES_CONTENT_TITLE }} {{ period | reverse | join(' ') }}</h2>
+            <dl class="dl-horizontal">
+            	{% for article in dates %}
+            	<dt>{{ article.locale_date}}</dt>
+            	<dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+            	{% endfor %}
+            </dl>
+        </div>
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ NEST_TAGS_HEAD_TITLE }} | {{ super() }}{% endblock title %}
+{% block description %}{{ NEST_TAGS_HEAD_DESCRIPTION }}{% endblock description %}
+{% block head %}{{ super() }}<meta name="robots" content="noindex">{% endblock head %}
+
+{% block content %}
+    <div class="archive-container">
+        <div class="container content archive category" style="text-align: center;">
+            <h1>{{ NEST_TAGS_CONTENT_TITLE }}</h1>
+            <ul class="tagcloud">
+    {% for tag in tag_cloud %}
+        <li class="tag-{{ tag.1 }}">
+            <a href="{{ SITEURL }}/{{ tag.0.url }}">
+            {{ tag.0 }}
+                {% if TAG_CLOUD_BADGE %}
+                    <span class="badge">{{ tag.2 }}</span>
+                {% endif %}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+        </div>
+    </div>
+{% endblock content %}
+
+
