@@ -1,8 +1,12 @@
 Title: Resources
 Author: Stevie Poppe
-Slug: resources
+Category: Studies
 Keywords: blog, japan, japanese, stevie poppe, anki, language, resources
-Icon: file2
+Tags: Anki, Tutorial, Japanese, Japan, Study
+Date: 2019-09-04
+Image: anki_header2.jpg
+Status: published
+
 
 <!-- PELICAN_BEGIN_SUMMARY -->
 This page contains links and files that have proven to be particularly useful for myself and might be of use for those with similar interests. I’ll update this spot as I encounter more tools or pages I feel are worthy of mention.
@@ -96,6 +100,7 @@ An Anki add-on, based on the [Sanseido Definitions](https://ankiweb.net/shared/i
 
 An Anki plug-in to be used in combination with a Rikaisama / Anki set-up as prescribed in [this blog](https://steviepoppe.net/blog/2016/09/a-quick-guide-on-using-anki-2-an-efficient-vocab-mining-set-up-with-anki-and-rikaisama/). Replaces or removes references to missing audio-files.
 
+[^footnote]: Image taken from the 2012 Japanese animated film Wolf Children by Mamoru Hosoda, used under Fair Use doctrine.
 [^1]: [Spaced Repetition System](https://en.wikipedia.org/wiki/Spaced_repetition): a method of studying optimally by repeating items over gradually increasing periods. Cards are calculated to appear shortly before the item slips one's mind.
 [^3]: **Ghesquiere, R. 2006**. Literaire verbeelding 2: een geschiedenis van de Europese literatuur en cultuur vanaf 1750. Leuven: Acco
 [^4]: Available for free under a BSD style license at [http://www.nihilist.org.uk/](http://www.nihilist.org.uk/).

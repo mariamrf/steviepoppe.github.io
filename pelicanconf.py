@@ -18,6 +18,8 @@ DATE_FORMATS = {
     'jp': ('jpn','%Y-%m-%d(%a)'),
 }
 DEFAULT_PAGINATION = 10
+HOME_MAX_ARTICLES = 4
+HOME_MAX_PUBLICATIONS = 4
 PAGINATION_PATTERNS = (
     (1, '{base_name}/', '{base_name}/index.html'),
     (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
@@ -94,7 +96,7 @@ PLUGIN_PATHS = ['./pelican-plugins/']
 PLUGINS = ['tipue_search','extract_toc','summary_footnotes','pelican.plugins.neighbors', 'pelican.plugins.liquid_tags',
 'related_posts',"tag_cloud",'pin_to_top','summary','assets','feed_summary']
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search', 'sitemap'))
-PAGINATED_TEMPLATES = {'archives': None, 'index': 4, 'category': None, 'author': None}
+PAGINATED_TEMPLATES = {'archives': None, 'index': 50, 'category': None, 'author': None}
 SITEMAP_SAVE_AS = 'sitemap.xml'
 #MD_EXTENSIONS = ['codehilite','extra','smarty', 'toc(anchorlink=True)', 'japanese', 'del_ins', 'pullquote','furigana',PyEmbedMarkdown()]
 

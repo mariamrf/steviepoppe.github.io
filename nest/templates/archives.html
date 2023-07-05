@@ -9,7 +9,7 @@
 {% block content %}
 <div class="archive-container">
 
-  {% for article in articles_page.object_list %}
+  {% for article in articles_page.object_list if article.category != 'Publication' %}
 
   <div class="container content padding-40 index-content-container">
     {% if article.image %}
